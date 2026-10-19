@@ -28,6 +28,7 @@
     --border: 240 6% 82%;
     --input: 240 6% 82%;
     --ring: 96 85% 36%;
+    --flow-diagram-accent: 158 38% 32%;
     --radius: 0.125rem;
   }
 
@@ -52,6 +53,7 @@
     --border: 240 5% 18%;
     --input: 240 5% 20%;
     --ring: 96 100% 50%;
+    --flow-diagram-accent: 152 42% 52%;
   }
 }
 

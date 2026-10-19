@@ -1,6 +1,5 @@
-import { ben10Green } from "@/lib/brand"
-
-const ACCENT = ben10Green
+/** Theme-aware diagram accent (readable on light + dark); not site primary neon. */
+const ACCENT = "hsl(var(--flow-diagram-accent))"
 const GRAY = "#8b8b93"
 const FONT = "ui-monospace, SFMono-Regular, Menlo, monospace"
 
