@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { augmentPath } from "@/data/site"
@@ -16,13 +15,13 @@ function CompanyMark({
 }) {
   return (
     <span
-      className={`relative mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border font-mono text-xs font-medium ${
+      className={`mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border p-1 font-mono text-xs font-medium ${
         logo === augmentPath.logo ? "bg-neutral-950" : "bg-background"
       }`}
       aria-hidden
     >
       {logo ? (
-        <Image src={logo} alt="" fill sizes="40px" className="object-contain p-1" />
+        <img src={logo} alt="" width={32} height={32} className="h-full w-full object-contain" loading="lazy" />
       ) : (
         mark ?? company.slice(0, 2)
       )}

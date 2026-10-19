@@ -7,11 +7,11 @@ type Variant = "sidebar" | "inline" | "mark"
 
 const shells: Record<Variant, string> = {
   sidebar:
-    "relative mb-4 inline-flex h-16 w-full max-w-[200px] items-center justify-center overflow-hidden border border-border/80 px-4 py-3",
+    "mb-4 inline-flex h-16 w-full max-w-[200px] items-center justify-center overflow-hidden border border-border/80 px-4 py-3",
   inline:
-    "relative inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border/80",
+    "inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border/80 p-1.5",
   mark:
-    "relative mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border",
+    "mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border p-1.5",
 }
 
 export function AugmentPathLogo({
@@ -33,7 +33,14 @@ export function AugmentPathLogo({
           className="h-auto max-h-10 w-auto object-contain"
         />
       ) : (
-        <Image src={augmentPath.logo} alt="" fill sizes="40px" className="object-contain p-1.5" />
+        <img
+          src={augmentPath.logo}
+          alt=""
+          width={28}
+          height={28}
+          className="h-full w-full object-contain"
+          loading="lazy"
+        />
       )}
     </span>
   )
