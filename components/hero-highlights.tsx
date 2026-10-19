@@ -1,10 +1,44 @@
 import { GitMerge } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { cpProfiles } from "@/data/site"
 
 const mergedPurple = "text-[#8957e5] font-semibold"
 const repoAccent = "text-foreground font-semibold"
-const langAccent = "text-primary font-medium"
+
+function Lang({
+  name,
+  color,
+  suffix,
+  suffixColor,
+}: {
+  name: string
+  color: string
+  suffix?: string
+  suffixColor?: string
+}) {
+  return (
+    <span className="font-medium" style={{ color }}>
+      {name}
+      {suffix ? (
+        <span style={{ color: suffixColor ?? color }}> ({suffix})</span>
+      ) : null}
+    </span>
+  )
+}
+
+function CpIcon({ src }: { src: string }) {
+  return (
+    <Image
+      src={src}
+      alt=""
+      width={16}
+      height={16}
+      className="inline-block h-4 w-4 shrink-0 object-contain"
+      aria-hidden
+    />
+  )
+}
 
 export function HeroHighlights() {
   const cf = cpProfiles[0]
@@ -21,15 +55,15 @@ export function HeroHighlights() {
         across{" "}
         <span className={repoAccent}>64 open-source repositories</span>
         , in{" "}
-        <span className={langAccent}>Go</span>
+        <Lang name="Go" color="#00ADD8" />
         {", "}
-        <span className={langAccent}>Rust</span>
+        <Lang name="Rust" color="#CE422B" suffix="🦀" />
         {", "}
-        <span className={langAccent}>C++</span>
+        <Lang name="C++" color="#00599C" />
         {", "}
-        <span className={langAccent}>TypeScript</span>
+        <Lang name="TypeScript" color="#3178C6" />
         {" and "}
-        <span className={langAccent}>Python</span>
+        <Lang name="Python" color="#3776AB" suffix="🐍" suffixColor="#FFD43B" />
         : databases, storage, search, networking, observability and developer tooling.
       </p>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
@@ -37,9 +71,10 @@ export function HeroHighlights() {
           href={cf.href}
           target="_blank"
           rel="noreferrer"
-          className="font-semibold transition-opacity hover:opacity-80"
+          className="inline-flex items-center gap-1.5 font-semibold transition-opacity hover:opacity-80"
           style={{ color: cf.accent }}
         >
+          <CpIcon src={cf.logo} />
           Codeforces Master at 2202
         </Link>
         <span className="text-muted-foreground/70"> · </span>
@@ -47,9 +82,10 @@ export function HeroHighlights() {
           href={lc.href}
           target="_blank"
           rel="noreferrer"
-          className="font-semibold transition-opacity hover:opacity-80"
+          className="inline-flex items-center gap-1.5 font-semibold transition-opacity hover:opacity-80"
           style={{ color: lc.accent }}
         >
+          <CpIcon src={lc.logo} />
           LeetCode 2400
         </Link>
         <span className="text-muted-foreground"> (Guardian)</span>

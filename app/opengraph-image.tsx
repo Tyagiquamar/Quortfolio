@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og"
 import { site } from "@/data/site"
+import { ben10Green } from "@/lib/brand"
 
 export const alt = site.title
 export const size = { width: 1200, height: 630 }
@@ -21,11 +22,11 @@ export default function OgImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ fontSize: 26, color: "#a3e635", fontFamily: "monospace" }}>
+        <div style={{ fontSize: 26, color: ben10Green, fontFamily: "monospace" }}>
           CTO · voice AI · backend systems
         </div>
         <div style={{ fontSize: 72, fontWeight: 700, marginTop: 18 }}>{site.name}</div>
-        <div style={{ fontSize: 24, marginTop: 14, color: "#a3e635", fontFamily: "monospace" }}>
+        <div style={{ fontSize: 24, marginTop: 14, color: ben10Green, fontFamily: "monospace" }}>
           CTO @ AugmentPath Strategy
         </div>
         <div style={{ fontSize: 24, color: "#a1a1a8", marginTop: 22, maxWidth: 980 }}>

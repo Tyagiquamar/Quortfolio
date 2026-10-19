@@ -1,4 +1,6 @@
-const ACCENT = "#a3e635"
+import { ben10Green } from "@/lib/brand"
+
+const ACCENT = ben10Green
 const GRAY = "#8b8b93"
 const FONT = "ui-monospace, SFMono-Regular, Menlo, monospace"
 
