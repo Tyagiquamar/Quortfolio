@@ -25,19 +25,19 @@ export function VoiceCase() {
         </Reveal>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-          <div>
+          <div className="min-w-0">
             <Reveal>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">{voiceCase.lede}</p>
             </Reveal>
 
-            <Reveal delay={60}>
-              <div className="panel-quiet mt-8 overflow-x-auto p-3 sm:p-5">
+            <Reveal delay={60} className="min-w-0">
+              <div className="panel-quiet mt-8 w-full min-w-0 overflow-x-auto p-3 sm:p-5">
                 <CallFlow />
               </div>
             </Reveal>
           </div>
 
-          <div className="space-y-8">
+          <div className="min-w-0 space-y-8">
             <Reveal>
               <div className="grid grid-cols-2 gap-px border border-border bg-border">
                 {voiceCase.metrics.map((metric) => (
