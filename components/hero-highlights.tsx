@@ -55,13 +55,13 @@ export function HeroHighlights() {
         across{" "}
         <span className={repoAccent}>64 open-source repositories</span>
         , in{" "}
-        <Lang name="Go" color="#00ADD8" />
+        <Lang name="Go" color="#00ADD8" suffix="🐹" />
         {", "}
         <Lang name="Rust" color="#CE422B" suffix="🦀" />
         {", "}
-        <Lang name="C++" color="#00599C" />
+        <Lang name="C++" color="#00599C" suffix="++" suffixColor="#659AD2" />
         {", "}
-        <Lang name="TypeScript" color="#3178C6" />
+        <Lang name="TypeScript" color="#3178C6" suffix="TS" suffixColor="#235A97" />
         {" and "}
         <Lang name="Python" color="#3776AB" suffix="🐍" suffixColor="#FFD43B" />
         : databases, storage, search, networking, observability and developer tooling.
