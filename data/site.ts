@@ -1,30 +1,30 @@
 export const site = {
   name: "Mohd Quamar Tyagi",
   shortName: "MQT",
-  role: "Founding Engineer · Voice AI & Backend Systems",
-  title: "Mohd Quamar Tyagi · Voice AI & Backend Systems Engineer",
+  role: "CTO · AugmentPath",
+  title: "Mohd Quamar Tyagi · CTO, AugmentPath",
   description:
-    "Founding engineer building production voice AI: inbound calls answered by a realtime agent, qualified, and written into the customer's own shop management system. Previously SDE-1 (Backend) at Zomato.",
+    "CTO at AugmentPath: production voice AI for automotive repair shops. Realtime agents, qualification gates, and Tekmetric delivery. Previously Go/gRPC at Nugget (Zomato), and merged open-source work across 64 repositories.",
   url: "https://quamar-voice.vercel.app",
   email: "mohdquamartyagi@gmail.com",
   location: "Remote · UTC+5:30",
-  availability: "Open to founding-engineer and backend-systems roles. Replies within a day.",
+  availability: "Open to the right founding and backend leadership roles. Replies within a day.",
 } as const
 
 export const nav = [
-  { label: "Voice AI", href: "#voice" },
-  { label: "Systems", href: "#systems" },
-  { label: "Open Source", href: "#open-source" },
+  { label: "Case study", href: "#voice" },
+  { label: "Work", href: "#systems" },
+  { label: "Open source", href: "#open-source" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ] as const
 
 export const hero = {
-  kicker: "Production voice AI · backend systems",
-  headline: "I make phone calls work as software.",
-  lede: "I build the backend and the realtime voice path behind an AI phone receptionist for automotive repair shops. A caller dials a shop's number, a realtime agent answers, captures the concern and the vehicle, and the qualified job lands in the shop's own management system. When the call ends, the record is there: transcript, classification, delivery status, billing.",
+  kicker: "CTO · AugmentPath",
+  headline: "I build backends that have to be right, and stay right.",
+  lede: "At AugmentPath I run production voice AI for auto repair shops: realtime agents, qualification before billing, and structured writes into the shop's own CRM. Before that, latency-sensitive Go and gRPC at Nugget (Zomato). The thread is correctness under production: calls delivered once, work that survives a crash, and a record you can reconstruct after the fact.",
   context:
-    "Before this: latency-sensitive Go services at Zomato, cloud-native open source with the Linux Foundation, and merged upstream pull requests across systems, storage, database and search projects.",
+    "Also 193 merged pull requests across 64 open-source repositories, in Go, Rust, C++, TypeScript and Python: databases, storage, search, networking, observability and developer tooling. Codeforces Candidate Master at 2038.",
 } as const
 
 export interface Stat {
@@ -35,24 +35,24 @@ export interface Stat {
 
 export const stats: Stat[] = [
   {
+    value: "193",
+    label: "merged OSS PRs",
+    detail: "64 repositories · 5 languages",
+  },
+  {
     value: "84",
     label: "commits shipped",
-    detail: "Backend + portal + E2E repos, Jun-Sep 2026",
+    detail: "voice backend, portal, E2E",
   },
   {
-    value: "6",
-    label: "merged PRs in the platform",
-    detail: "voice gateway, call flow, booking correctness",
-  },
-  {
-    value: "15",
-    label: "merged upstream OSS PRs",
-    detail: "Go, Rust, C++ across 15 repositories",
+    value: "5x",
+    label: "p90 latency improvement",
+    detail: "Go/gRPC paths at Nugget (Zomato)",
   },
   {
     value: "2038",
     label: "Codeforces rating",
-    detail: "Candidate Master · 2400+ LeetCode Guardian",
+    detail: "Candidate Master · LeetCode Guardian 2400+",
   },
 ]
 
@@ -94,7 +94,7 @@ export const cpProfiles = [
 export const skillGroups = [
   {
     title: "Languages",
-    skills: ["TypeScript", "Go", "C++", "Node.js", "Python", "SQL"],
+    skills: ["TypeScript", "Go", "C++", "Rust", "Python", "SQL"],
   },
   {
     title: "Voice & AI",
@@ -108,15 +108,21 @@ export const skillGroups = [
   },
   {
     title: "Backend",
-    skills: ["NestJS", "Express", "REST", "Webhooks", "gRPC", "Multi-tenant auth"],
+    skills: ["NestJS", "Node.js", "REST", "Webhooks", "gRPC", "Multi-tenant auth"],
   },
   {
     title: "Data",
-    skills: ["MongoDB", "PostgreSQL", "Redis", "Weaviate", "MySQL"],
+    skills: ["PostgreSQL", "MongoDB", "Supabase", "Redis", "MySQL", "Weaviate"],
   },
   {
-    title: "Integrations",
-    skills: ["Twilio", "Tekmetric", "Cal.com", "Stripe", "SendGrid"],
+    title: "Voice plumbing",
+    skills: [
+      "Twilio numbers",
+      "Call transcription",
+      "Spam classification",
+      "CRM delivery",
+      "Usage billing",
+    ],
   },
   {
     title: "Ops",

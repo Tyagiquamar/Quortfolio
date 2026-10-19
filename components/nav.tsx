@@ -19,7 +19,7 @@ export function Nav() {
           <span className="inline-flex h-6 w-6 items-center justify-center border border-primary/50 text-[10px] text-primary">
             {site.shortName}
           </span>
-          <span className="hidden text-muted-foreground sm:inline">Voice AI · Backend</span>
+          <span className="hidden text-muted-foreground sm:inline">Founding Engineer</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">

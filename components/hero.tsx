@@ -82,7 +82,7 @@ export function Hero() {
             <div>
               <p className="kicker">Now</p>
               <p className="mt-3 text-sm text-foreground">{site.role}</p>
-              <p className="mt-1 font-mono text-xs text-muted-foreground">AugmentPath Strategy</p>
+              <p className="mt-1 font-mono text-xs text-muted-foreground">AugmentPath · production voice AI</p>
             </div>
             <div>
               <p className="kicker">Availability</p>
@@ -91,7 +91,7 @@ export function Hero() {
             <div>
               <p className="kicker">Focus</p>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Realtime voice agents · backend and integration systems · call data you can audit
+                Voice AI · realtime backends · Go systems · merged open source
               </p>
             </div>
             <div>

@@ -13,8 +13,8 @@ export const voiceCase = {
   slug: "augmentpath",
   title: "AugmentPath",
   subtitle: "AI phone receptionist for automotive repair shops",
-  role: "Founding Engineer · Voice AI & Backend Systems",
-  period: "Jun 2026 - Sep 2026",
+  role: "CTO",
+  period: "May 2026 - Present",
   kicker: "Production voice AI",
   lede: "An inbound call to an auto repair shop is answered by a realtime voice agent, diagnosed before it is qualified, and written into the shop's own management system as structured work. I built the backend and the voice path that make that happen, and the operational trail that proves what happened on every call.",
 

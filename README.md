@@ -1,8 +1,8 @@
-# Mohd Quamar Tyagi · Voice AI portfolio
+# Quortfolio
 
-The second of two portfolios, run as an experiment: this one leads with production voice AI and
-backend systems instead of a broad full-stack narrative, so the two can be compared on the only
-metric that matters, whether founders and hiring managers reply.
+Mohd Quamar Tyagi · CTO at AugmentPath. This site opens with the production voice-AI
+case study, then widens to the whole record: four roles, twelve systems and product projects, and
+193 merged pull requests across 64 open-source repositories.
 
 **Stack:** Next.js 15 (App Router) + React 19, TypeScript, Tailwind CSS, dark-first.
 
@@ -10,7 +10,8 @@ metric that matters, whether founders and hiring managers reply.
 
 - **The lead is a production system, not a project list.** The first thing on the page is the AI
   phone receptionist built at AugmentPath Strategy: realtime voice, spam classification, Tekmetric
-  delivery, and the operational trail behind every call.
+  delivery, and the operational trail behind every call. The rest of the page carries the work
+  history, the side projects and the upstream merge record.
 - **Evidence over adjectives.** Commit counts, merged pull requests, benchmark numbers and failure
   scenarios, all traceable to a repository or a merge.
 - **A console aesthetic.** Space Grotesk headings, JetBrains Mono labels, thin rules, and a lime
@@ -44,4 +45,7 @@ npm run lint
   not customer data. The pilot customer is not named.
 - Project metrics (benchmarks, digests, replay parity) are the numbers recorded in those
   repositories.
+- The open-source totals (193 merged, 64 repositories) come from GitHub search for merged PRs
+authored by Tyagiquamar outside his own repositories, checked on 2026-10-19. The table lists a
+curated subset, not all 193.
 - The current resume PDF is not linked from this site yet.

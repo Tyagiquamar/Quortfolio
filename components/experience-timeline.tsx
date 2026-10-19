@@ -1,5 +1,31 @@
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import { education, experience } from "@/data/experience"
 import { Reveal } from "@/components/reveal"
+
+function CompanyMark({
+  company,
+  logo,
+  mark,
+}: {
+  company: string
+  logo?: string
+  mark?: string
+}) {
+  return (
+    <span
+      className="relative mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border bg-background font-mono text-xs font-medium"
+      aria-hidden
+    >
+      {logo ? (
+        <Image src={logo} alt="" fill sizes="40px" className="object-contain p-1" />
+      ) : (
+        mark ?? company.slice(0, 2)
+      )}
+    </span>
+  )
+}
 
 export function ExperienceTimeline() {
   return (
@@ -8,6 +34,7 @@ export function ExperienceTimeline() {
         <Reveal key={`${role.company}-${role.dates}`} delay={index * 30}>
           <article className="hover-row grid gap-5 border-b border-border px-1 py-8 lg:grid-cols-[220px_minmax(0,1fr)_210px] lg:items-start lg:gap-10">
             <div>
+              <CompanyMark company={role.company} logo={role.logo} mark={role.mark} />
               <p className="disp text-lg font-semibold">
                 {role.company}
                 {role.current ? (
@@ -33,6 +60,15 @@ export function ExperienceTimeline() {
                   </li>
                 ))}
               </ul>
+              {role.href ? (
+                <Link
+                  href={role.href}
+                  className="quiet-link group mt-4 inline-flex items-center gap-2 text-sm text-foreground"
+                >
+                  Read the full case study
+                  <ArrowUpRight className="h-3.5 w-3.5 transition duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              ) : null}
             </div>
 
             <p className="font-mono text-[11px] leading-5 text-muted-foreground/80 lg:border-l lg:border-border lg:pl-5">

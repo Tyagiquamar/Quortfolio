@@ -9,28 +9,118 @@ export interface Contribution {
   mergedAt?: string
 }
 
+export interface RepoCoverage {
+  repo: string
+  merged: number
+}
+
+export const ossStats = {
+  merged: 193,
+  repositories: 64,
+  languages: ["Go", "Rust", "C++", "TypeScript", "Python"],
+  profileHref: "https://github.com/pulls?q=is%3Apr+author%3ATyagiquamar+is%3Amerged",
+} as const
+
+export const coverage: RepoCoverage[] = [
+  { repo: "seaweedfs/seaweedfs", merged: 8 },
+  { repo: "c9s/bbgo", merged: 5 },
+  { repo: "HelixDB/helix-db", merged: 5 },
+  { repo: "svix/svix-webhooks", merged: 4 },
+  { repo: "seladb/PcapPlusPlus", merged: 4 },
+  { repo: "LadybugDB/ladybug", merged: 4 },
+  { repo: "qdrant/go-client", merged: 3 },
+  { repo: "moonrepo/moon", merged: 3 },
+  { repo: "go-vikunja/vikunja", merged: 3 },
+  { repo: "fosrl/pangolin", merged: 3 },
+  { repo: "fastly/cli", merged: 3 },
+  { repo: "boostsecurityio/poutine", merged: 3 },
+  { repo: "GreptimeTeam/greptimedb", merged: 3 },
+  { repo: "weaviate/weaviate-go-client", merged: 2 },
+  { repo: "upstash/ratelimit-js", merged: 2 },
+  { repo: "tinacms/tinacms", merged: 2 },
+  { repo: "thrasher-corp/gocryptotrader", merged: 2 },
+  { repo: "spacelift-io/terraform-provider-spacelift", merged: 2 },
+  { repo: "rilldata/rill", merged: 2 },
+  { repo: "railwayapp/railpack", merged: 2 },
+]
+
 export const mergedContributions: Contribution[] = [
   {
-    repo: "dragonflydb/dragonfly",
-    title: "Cluster node health config parser",
+    repo: "railwayapp/railpack",
+    title: "Turborepo install context",
     detail:
-      "Hardened the cluster configuration parser in C++ to reject invalid node health states instead of accepting corrupted topology.",
-    language: "C++",
-    domain: "In-memory database",
-    prNumber: 8306,
-    href: "https://github.com/dragonflydb/dragonfly/pull/8306",
-    mergedAt: "2026-09-16",
+      "Included turbo.json in the install file set so Turborepo projects keep their workspace detection during image builds.",
+    language: "TypeScript",
+    domain: "Build tooling",
+    prNumber: 770,
+    href: "https://github.com/railwayapp/railpack/pull/770",
+    mergedAt: "2026-10-14",
   },
   {
-    repo: "GreptimeTeam/greptimedb",
-    title: "Prometheus remote-read timeseries deduplication",
+    repo: "dbos-inc/dbos-transact-ts",
+    title: "Conductor-owned recovery",
     detail:
-      "Merged duplicate timeseries across streaming RecordBatches in the Prometheus remote-read server path to prevent corrupted responses.",
-    language: "Rust",
-    domain: "Time-series database",
-    prNumber: 9032,
-    href: "https://github.com/GreptimeTeam/greptimedb/pull/9032",
-    mergedAt: "2026-09-19",
+      "Skipped executor self-recovery when a conductor is enabled, so one recovery path owns workflow state instead of two racing.",
+    language: "TypeScript",
+    domain: "Durable execution",
+    prNumber: 1407,
+    href: "https://github.com/dbos-inc/dbos-transact-ts/pull/1407",
+    mergedAt: "2026-10-14",
+  },
+  {
+    repo: "traefik/traefik",
+    title: "Gateway API backend scheme",
+    detail:
+      "Defaulted the HTTPRoute backend scheme to HTTP when appProtocol is absent, instead of leaving the route without a scheme.",
+    language: "Go",
+    domain: "Edge proxy",
+    prNumber: 13935,
+    href: "https://github.com/traefik/traefik/pull/13935",
+    mergedAt: "2026-10-12",
+  },
+  {
+    repo: "seladb/PcapPlusPlus",
+    title: "GRE layer serialization",
+    detail:
+      "Added GRE layer serialization to Packet++, so encapsulated packets round-trip through the writer instead of being dropped.",
+    language: "C++",
+    domain: "Packet parsing",
+    prNumber: 2297,
+    href: "https://github.com/seladb/PcapPlusPlus/pull/2297",
+    mergedAt: "2026-10-11",
+  },
+  {
+    repo: "open-telemetry/opentelemetry-cpp",
+    title: "ETW property string length",
+    detail:
+      "Fixed PropertyValue string conversions that doubled the length and ignored string_view size in the ETW exporter.",
+    language: "C++",
+    domain: "Observability",
+    prNumber: 4656,
+    href: "https://github.com/open-telemetry/opentelemetry-cpp/pull/4656",
+    mergedAt: "2026-10-10",
+  },
+  {
+    repo: "LadybugDB/ladybug",
+    title: "Plan-optimizer segfault",
+    detail:
+      "Resolved a segfault in mapExpressionsScan when the plan optimizer is disabled, a crash that only appeared on the non-optimized path.",
+    language: "C++",
+    domain: "Graph database",
+    prNumber: 1148,
+    href: "https://github.com/LadybugDB/ladybug/pull/1148",
+    mergedAt: "2026-10-09",
+  },
+  {
+    repo: "temporalio/sdk-go",
+    title: "Legacy query failure cause",
+    detail:
+      "Set WorkflowTaskFailedCause on legacy query failure responses, so callers see why the task failed instead of an empty cause.",
+    language: "Go",
+    domain: "Durable execution",
+    prNumber: 2663,
+    href: "https://github.com/temporalio/sdk-go/pull/2663",
+    mergedAt: "2026-09-30",
   },
   {
     repo: "svix/svix-webhooks",
@@ -53,6 +143,39 @@ export const mergedContributions: Contribution[] = [
     prNumber: 1907,
     href: "https://github.com/fastly/cli/pull/1907",
     mergedAt: "2026-09-21",
+  },
+  {
+    repo: "GreptimeTeam/greptimedb",
+    title: "Prometheus remote-read timeseries deduplication",
+    detail:
+      "Merged duplicate timeseries across streaming RecordBatches in the Prometheus remote-read server path to prevent corrupted responses.",
+    language: "Rust",
+    domain: "Time-series database",
+    prNumber: 9032,
+    href: "https://github.com/GreptimeTeam/greptimedb/pull/9032",
+    mergedAt: "2026-09-19",
+  },
+  {
+    repo: "upstash/ratelimit-js",
+    title: "Duration parser units",
+    detail:
+      "Extended duration parsing to decimal values and the week unit in the TypeScript rate-limit client, instead of rejecting valid windows.",
+    language: "TypeScript",
+    domain: "Rate limiting",
+    prNumber: 158,
+    href: "https://github.com/upstash/ratelimit-js/pull/158",
+    mergedAt: "2026-09-18",
+  },
+  {
+    repo: "dragonflydb/dragonfly",
+    title: "Cluster node health config parser",
+    detail:
+      "Hardened the cluster configuration parser in C++ to reject invalid node health states instead of accepting corrupted topology.",
+    language: "C++",
+    domain: "In-memory database",
+    prNumber: 8306,
+    href: "https://github.com/dragonflydb/dragonfly/pull/8306",
+    mergedAt: "2026-09-16",
   },
   {
     repo: "moonrepo/moon",
@@ -110,6 +233,17 @@ export const mergedContributions: Contribution[] = [
     mergedAt: "2026-09-12",
   },
   {
+    repo: "PrefectHQ/prefect",
+    title: "Local storage under PREFECT_HOME",
+    detail:
+      "Defaulted local_storage_path to PREFECT_HOME/storage so local runs and server runs read and write the same place.",
+    language: "Python",
+    domain: "Workflow orchestration",
+    prNumber: 23070,
+    href: "https://github.com/PrefectHQ/prefect/pull/23070",
+    mergedAt: "2026-09-11",
+  },
+  {
     repo: "seaweedfs/seaweedfs",
     title: "Metadata subscription lifecycle",
     detail:
@@ -141,6 +275,17 @@ export const mergedContributions: Contribution[] = [
     prNumber: 7011,
     href: "https://github.com/feldera/feldera/pull/7011",
     mergedAt: "2026-09-09",
+  },
+  {
+    repo: "makeplane/plane",
+    title: "Issue-link recrawl guard",
+    detail:
+      "Stopped issue-link updates from re-crawling when the URL is unchanged, and from overwriting user metadata in the process.",
+    language: "Python",
+    domain: "Project tooling",
+    prNumber: 9763,
+    href: "https://github.com/makeplane/plane/pull/9763",
+    mergedAt: "2026-09-07",
   },
   {
     repo: "qdrant/go-client",

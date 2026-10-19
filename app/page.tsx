@@ -6,8 +6,11 @@ import { OssTable } from "@/components/oss-table"
 import { ExperienceTimeline } from "@/components/experience-timeline"
 import { Signals } from "@/components/signals"
 import { Contact, SiteFooter } from "@/components/contact"
+import { getContributionCalendar } from "@/lib/github"
 
-export default function Home() {
+export default async function Home() {
+  const contributionCalendar = await getContributionCalendar()
+
   return (
     <main>
       <Hero />
@@ -44,16 +47,16 @@ export default function Home() {
         id="open-source"
         kicker="Upstream"
         title="Merged work in other people's systems"
-        note="Real bug fixes in production codebases, merged upstream: Go, Rust, C++ and TypeScript across databases, storage, search, networking and developer tooling. These are the changes I would want a reviewer to check first."
+        note="193 merged pull requests across 64 repositories in Go, Rust, C++, TypeScript and Python: databases, storage, search, networking, observability and developer tooling. The rows below are the changes I would want a reviewer to check first."
       >
-        <OssTable />
+        <OssTable contributionCalendar={contributionCalendar} />
       </Section>
 
       <Section
         id="experience"
         kicker="History"
         title="Where the production habits came from"
-        note="Startup founding-engineering work, latency-sensitive services at Zomato, and cloud-native open source through the Linux Foundation. Most recent first."
+        note="CTO at AugmentPath, then Nugget (Zomato) and earlier roles. Detail for voice AI lives in the case study above."
       >
         <ExperienceTimeline />
       </Section>

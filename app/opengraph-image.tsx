@@ -22,15 +22,14 @@ export default function OgImage() {
         }}
       >
         <div style={{ fontSize: 26, color: "#a3e635", fontFamily: "monospace" }}>
-          production voice AI · backend systems
+          founding engineer · voice AI · backend systems
         </div>
         <div style={{ fontSize: 72, fontWeight: 700, marginTop: 18 }}>{site.name}</div>
-        <div style={{ fontSize: 30, marginTop: 14, color: "#a3e635", fontFamily: "monospace" }}>
+        <div style={{ fontSize: 24, marginTop: 14, color: "#a3e635", fontFamily: "monospace" }}>
           Founding Engineer @ AugmentPath Strategy
         </div>
-        <div style={{ fontSize: 24, color: "#a1a1a8", marginTop: 22, maxWidth: 940 }}>
-          AI phone receptionist for auto repair shops: realtime voice, spam filtering, Tekmetric
-          delivery · Ex-Zomato SDE-1 · Codeforces Candidate Master
+        <div style={{ fontSize: 24, color: "#a1a1a8", marginTop: 22, maxWidth: 980 }}>
+          AI phone receptionist for auto repair shops · SDE-1 at Nugget (Zomato) · 193 merged OSS PRs across 64 repositories
         </div>
       </div>
     ),

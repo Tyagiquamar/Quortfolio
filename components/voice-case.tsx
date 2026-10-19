@@ -17,9 +17,12 @@ export function VoiceCase() {
                 {voiceCase.subtitle}
               </p>
             </div>
-            <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-primary">
-              <span className="dot-live" aria-hidden />
-              {voiceCase.period}
+            <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
+              {voiceCase.role} ·{" "}
+              <span className="inline-flex items-center gap-2 text-primary">
+                <span className="dot-live" aria-hidden />
+                {voiceCase.period}
+              </span>
             </p>
           </div>
         </Reveal>
