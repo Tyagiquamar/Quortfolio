@@ -1,5 +1,7 @@
+import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
-import { cpProfiles, skillGroups } from "@/data/site"
+import { ToolkitGrid } from "@/components/toolkit-chips"
+import { cpProfiles } from "@/data/site"
 import { Reveal } from "@/components/reveal"
 
 export function Signals() {
@@ -20,12 +22,24 @@ export function Signals() {
                 href={profile.href}
                 target="_blank"
                 rel="noreferrer"
-                className="hover-row flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-2 py-4"
+                className="hover-row flex flex-wrap items-center gap-x-4 gap-y-2 border-l-[3px] py-4 pl-3 pr-2"
+                style={{ borderLeftColor: profile.accent }}
               >
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <span
+                  className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded border border-border/80 bg-background"
+                >
+                  <Image
+                    src={profile.logo}
+                    alt=""
+                    fill
+                    sizes="36px"
+                    className="object-contain p-1"
+                  />
+                </span>
+                <span className="min-w-[7rem] font-mono text-xs uppercase tracking-[0.18em]" style={{ color: profile.accent }}>
                   {profile.platform}
                 </span>
-                <span className="text-sm text-foreground">{profile.rating}</span>
+                <span className="flex-1 text-sm text-foreground">{profile.rating}</span>
                 <span className="flex items-center gap-1 font-mono text-[11px] text-muted-foreground">
                   {profile.detail}
                   <ArrowUpRight className="h-3 w-3" />
@@ -39,16 +53,7 @@ export function Signals() {
       <Reveal delay={60}>
         <div>
           <p className="kicker">Toolkit</p>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            {skillGroups.map((group) => (
-              <div key={group.title} className="border-t border-border pt-4">
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                  {group.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-foreground/85">{group.skills.join(" / ")}</p>
-              </div>
-            ))}
-          </div>
+          <ToolkitGrid />
         </div>
       </Reveal>
     </div>

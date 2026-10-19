@@ -94,22 +94,7 @@ export default function AugmentPathCaseStudy() {
           </div>
         </header>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-          <p className="max-w-3xl text-lg leading-8 text-muted-foreground">{voiceCase.lede}</p>
-          <div className="grid grid-cols-2 gap-px border border-border bg-border">
-            {voiceCase.metrics.map((metric) => (
-              <div key={metric.label} className="bg-background px-4 py-4">
-                <p className="disp text-xl font-semibold leading-tight">{metric.value}</p>
-                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-                  {metric.label}
-                </p>
-                <p className="mt-1 font-mono text-[10px] leading-4 text-muted-foreground/70">
-                  {metric.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <p className="mt-10 max-w-3xl text-lg leading-8 text-muted-foreground">{voiceCase.lede}</p>
 
         <Reveal>
           <div className="panel-quiet mt-12 overflow-x-auto p-3 sm:p-5">

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: [
     "Mohd Quamar Tyagi",
-    "founding engineer",
+    "CTO",
     "voice AI engineer",
     "realtime voice agents",
     "backend engineer",
@@ -51,7 +51,7 @@ const jsonLd = {
   name: site.name,
   url: site.url,
   email: site.email,
-  jobTitle: "Founding Engineer",
+  jobTitle: "CTO",
   description: site.description,
   worksFor: { "@type": "Organization", name: "AugmentPath Strategy" },
   knowsAbout: [
@@ -63,7 +63,7 @@ const jsonLd = {
   ],
   sameAs: [
     "https://github.com/Tyagiquamar",
-    "https://linkedin.com/in/mohd-quamar-tyagi",
+    "https://www.linkedin.com/in/quamartyagi/",
     "https://codeforces.com/profile/altair_45",
     "https://leetcode.com/u/Altair_4/",
   ],

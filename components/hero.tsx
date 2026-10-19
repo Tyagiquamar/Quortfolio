@@ -1,6 +1,10 @@
-import { ArrowUpRight, Mail, MapPin } from "lucide-react"
-import { hero, site, stats } from "@/data/site"
+import { ArrowUpRight, GitMerge, Mail, MapPin } from "lucide-react"
+import { AugmentPathLogo } from "@/components/augment-path-logo"
+import { HeroHighlights } from "@/components/hero-highlights"
+import { augmentPath, hero, site, stats } from "@/data/site"
 import { Reveal } from "@/components/reveal"
+
+const githubMergedClass = "text-[#8957e5]"
 
 export function Hero() {
   return (
@@ -27,7 +31,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-muted-foreground/85">{hero.context}</p>
+            <HeroHighlights />
           </Reveal>
 
           <Reveal delay={160}>
@@ -40,7 +44,7 @@ export function Hero() {
                 Email me
               </a>
               <a
-                href="https://github.com/Tyagiquamar"
+                href={site.github}
                 target="_blank"
                 rel="noreferrer"
                 className="focus-ring inline-flex items-center gap-2 border border-border px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
@@ -49,7 +53,7 @@ export function Hero() {
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
               <a
-                href="https://linkedin.com/in/mohd-quamar-tyagi"
+                href={site.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="focus-ring inline-flex items-center gap-2 border border-border px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
@@ -62,9 +66,14 @@ export function Hero() {
 
           <Reveal delay={200}>
             <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-              {stats.map((stat) => (
+              {stats.map((stat, index) => (
                 <div key={stat.label} className="bg-background px-4 py-4">
-                  <p className="disp text-2xl font-semibold leading-none">{stat.value}</p>
+                  <p className="disp flex items-center gap-2 text-2xl font-semibold leading-none">
+                    {index === 0 ? (
+                      <GitMerge className={`h-5 w-5 shrink-0 ${githubMergedClass}`} aria-hidden />
+                    ) : null}
+                    {stat.value}
+                  </p>
                   <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                     {stat.label}
                   </p>
@@ -80,9 +89,21 @@ export function Hero() {
         <Reveal delay={120}>
           <aside className="space-y-6 border-y border-border py-5 lg:border-y-0 lg:border-l lg:pl-8">
             <div>
+              <a
+                href={augmentPath.url}
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring inline-block"
+              >
+                <AugmentPathLogo variant="sidebar" />
+              </a>
               <p className="kicker">Now</p>
               <p className="mt-3 text-sm text-foreground">{site.role}</p>
-              <p className="mt-1 font-mono text-xs text-muted-foreground">AugmentPath · production voice AI</p>
+              <p className="mt-1 font-mono text-xs text-muted-foreground">
+                <a href={augmentPath.url} target="_blank" rel="noreferrer" className="quiet-link">
+                  {augmentPath.url.replace(/^https?:\/\/(www\.)?/, "")}
+                </a>
+              </p>
             </div>
             <div>
               <p className="kicker">Availability</p>

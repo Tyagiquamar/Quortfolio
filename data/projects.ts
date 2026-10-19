@@ -29,7 +29,7 @@ export interface Project {
   github: string
   live?: string
   liveLabel?: string
-  image?: { src: string; alt: string }
+  image?: { src: string; alt: string; fallbackSrc?: string }
 }
 
 export const projects: Project[] = [
@@ -71,8 +71,9 @@ export const projects: Project[] = [
     live: "https://relaydb-dashboard.vercel.app",
     liveLabel: "Live dashboard",
     image: {
-      src: "/images/relaydb-architecture.svg",
+      src: "/images/relaydb-architecture.png",
       alt: "RelayDB pipeline from source PostgreSQL WAL through capture and fenced checkpoints to API, control room and webhook delivery",
+      fallbackSrc: "/images/relaydb-architecture.svg",
     },
   },
   {
@@ -149,8 +150,9 @@ export const projects: Project[] = [
     tech: ["Go", "Binance", "OKX", "Bybit", "PostgreSQL", "Prometheus"],
     github: "https://github.com/Tyagiquamar/crossvenue",
     image: {
-      src: "/images/crossvenue-architecture.svg",
+      src: "/images/crossvenue-architecture.png",
       alt: "CrossVenue pipeline from venue adapters into local books, opportunity engine, risk and simulated two-leg execution",
+      fallbackSrc: "/images/crossvenue-architecture.svg",
     },
   },
   {

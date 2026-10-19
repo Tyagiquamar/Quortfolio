@@ -69,7 +69,7 @@ export function CallFlow() {
     <svg
       viewBox="0 0 720 430"
       role="img"
-      aria-label="AugmentPath call flow: an inbound Twilio number reaches a Retell voice agent driving a custom LLM WebSocket gateway; call-analysed events hit the NestJS webhook where spam and eligibility decide whether the lead is delivered to Tekmetric, alerted by SMS, booked through Cal.com, or billed in Stripe."
+      aria-label="AugmentPath Strategy call flow: an inbound Twilio number reaches a Retell voice agent driving a custom LLM WebSocket gateway; call-analysed events hit the NestJS webhook where spam and eligibility decide whether the lead is delivered to Tekmetric, alerted by SMS, booked through Cal.com, or billed in Stripe."
       className="h-auto w-full min-w-[620px]"
     >
       <defs>

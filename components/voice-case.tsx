@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { AugmentPathLogo } from "@/components/augment-path-logo"
+import { augmentPath } from "@/data/site"
 import { voiceCase } from "@/data/voice"
 import { CallFlow } from "@/components/call-flow"
 import { Reveal } from "@/components/reveal"
@@ -12,7 +14,12 @@ export function VoiceCase() {
           <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
             <div>
               <p className="kicker">{voiceCase.kicker}</p>
-              <h2 className="disp mt-4 text-3xl font-semibold sm:text-5xl">{voiceCase.title}</h2>
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                <a href={augmentPath.url} target="_blank" rel="noreferrer" className="focus-ring">
+                  <AugmentPathLogo variant="inline" />
+                </a>
+                <h2 className="disp text-3xl font-semibold sm:text-5xl">{voiceCase.title}</h2>
+              </div>
               <p className="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
                 {voiceCase.subtitle}
               </p>
@@ -42,22 +49,6 @@ export function VoiceCase() {
 
           <div className="min-w-0 space-y-8">
             <Reveal>
-              <div className="grid grid-cols-2 gap-px border border-border bg-border">
-                {voiceCase.metrics.map((metric) => (
-                  <div key={metric.label} className="bg-background px-4 py-4">
-                    <p className="disp text-xl font-semibold leading-tight">{metric.value}</p>
-                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-                      {metric.label}
-                    </p>
-                    <p className="mt-1 font-mono text-[10px] leading-4 text-muted-foreground/70">
-                      {metric.detail}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={60}>
               <div>
                 <p className="kicker">What I owned</p>
                 <ul className="mt-4 space-y-3">
@@ -71,7 +62,7 @@ export function VoiceCase() {
               </div>
             </Reveal>
 
-            <Reveal delay={90}>
+            <Reveal delay={60}>
               <div>
                 <p className="kicker">Stack</p>
                 <p className="mt-3 font-mono text-xs leading-5 text-muted-foreground">

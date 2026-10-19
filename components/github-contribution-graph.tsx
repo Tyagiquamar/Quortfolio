@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Github } from "lucide-react"
-import type { ContributionCalendarData } from "@/lib/github"
+import type { ContributionCalendarData, ContributionCell } from "@/lib/github"
 
 const levelClass: Record<number, string> = {
   0: "bg-muted",
@@ -11,19 +11,19 @@ const levelClass: Record<number, string> = {
 }
 
 function cellsToWeeks(cells: ContributionCalendarData["cells"]) {
-  if (cells.length === 0) return [] as ContributionCalendarData["cells"][][]
+  if (cells.length === 0) return [] as ContributionCell[][]
 
   const sorted = [...cells].sort((a, b) => a.date.localeCompare(b.date))
   const first = new Date(`${sorted[0].date}T12:00:00Z`)
   const pad = first.getUTCDay()
-  const padded: ContributionCalendarData["cells"][] = []
+  const padded: ContributionCell[] = []
 
   for (let i = 0; i < pad; i++) {
     padded.push({ date: "", count: 0, level: 0 })
   }
   padded.push(...sorted)
 
-  const weeks: ContributionCalendarData["cells"][][] = []
+  const weeks: ContributionCell[][] = []
   for (let i = 0; i < padded.length; i += 7) {
     weeks.push(padded.slice(i, i + 7))
   }

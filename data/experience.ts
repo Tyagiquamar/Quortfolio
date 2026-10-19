@@ -13,12 +13,12 @@ export interface Role {
 
 export const experience: Role[] = [
   {
-    company: "AugmentPath",
+    company: "AugmentPath Strategy",
     role: "CTO",
     location: "Remote",
     dates: "May 2026 - Present",
     current: true,
-    logo: "/logos/augmentpath-icon.png",
+    logo: "/logos/augmentpath-strategy-logo.png",
     href: "/work/augmentpath",
     bullets: [
       "Realtime voice agent for inbound shop calls: diagnose, qualify, and write structured work into Tekmetric.",

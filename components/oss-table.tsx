@@ -1,8 +1,12 @@
 import { ArrowUpRight, GitMerge, GitPullRequest } from "lucide-react"
 import { GithubContributionGraph } from "@/components/github-contribution-graph"
-import { coverage, mergedContributions, openContributions, ossStats } from "@/data/opensource"
+import { OssMergedGroups } from "@/components/oss-merged-groups"
+import { coverage, openContributions, ossStats } from "@/data/opensource"
 import type { ContributionCalendarData } from "@/lib/github"
+import { buildRepoMergeGroups } from "@/lib/oss-groups"
 import { Reveal } from "@/components/reveal"
+
+const githubMergedClass = "text-[#8957e5]"
 
 function repoOwner(repo: string) {
   return repo.split("/")[0] ?? repo
@@ -23,6 +27,8 @@ function RepoAvatar({ repo }: { repo: string }) {
 }
 
 export function OssTable({ contributionCalendar }: { contributionCalendar?: ContributionCalendarData }) {
+  const repoGroups = buildRepoMergeGroups(coverage)
+
   return (
     <div>
       {contributionCalendar ? (
@@ -35,7 +41,7 @@ export function OssTable({ contributionCalendar }: { contributionCalendar?: Cont
         <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-3">
           <div className="bg-background px-4 py-4">
             <p className="disp flex items-center gap-2 text-3xl font-semibold leading-none">
-              <GitMerge className="h-6 w-6 text-primary" aria-hidden />
+              <GitMerge className={`h-6 w-6 ${githubMergedClass}`} aria-hidden />
               {ossStats.merged}
             </p>
             <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
@@ -61,42 +67,16 @@ export function OssTable({ contributionCalendar }: { contributionCalendar?: Cont
       </Reveal>
 
       <Reveal>
-        <div className="mt-10 grid gap-3 border-y border-border py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_90px_120px]">
-          <span className="hidden md:block">Repository</span>
-          <span className="hidden md:block">Change merged upstream</span>
-          <span className="hidden md:block">Language</span>
-          <span className="hidden md:block">Merged</span>
-        </div>
+        <p className="mt-10 kicker">Merged by repository</p>
+        <p className="mt-2 max-w-2xl text-xs leading-5 text-muted-foreground">
+          Grouped by upstream repo. Each row summarizes every merged PR in that project; expand for a
+          one-line breakdown without leaving the page.
+        </p>
       </Reveal>
 
-      <div className="divide-y divide-border border-b border-border">
-        {mergedContributions.map((item, index) => (
-          <Reveal key={item.href} delay={index * 15}>
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              className="hover-row grid gap-2 px-1 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_90px_120px] md:items-baseline md:gap-6"
-            >
-              <span className="flex min-w-0 items-center gap-2 font-mono text-xs text-foreground">
-                <RepoAvatar repo={item.repo} />
-                <span className="truncate">
-                  {item.repo}
-                  <span className="ml-2 text-muted-foreground">#{item.prNumber}</span>
-                </span>
-              </span>
-              <span className="text-sm leading-6 text-muted-foreground">
-                <span className="text-foreground">{item.title}.</span> {item.detail}
-              </span>
-              <span className="font-mono text-[11px] text-muted-foreground">{item.language}</span>
-              <span className="flex items-center gap-1 font-mono text-[11px] text-muted-foreground">
-                {item.mergedAt}
-                <GitMerge className="h-3 w-3 text-primary" />
-              </span>
-            </a>
-          </Reveal>
-        ))}
-      </div>
+      <Reveal delay={30}>
+        <OssMergedGroups groups={repoGroups} />
+      </Reveal>
 
       <Reveal>
         <div className="mt-10">
@@ -123,7 +103,7 @@ export function OssTable({ contributionCalendar }: { contributionCalendar?: Cont
               >
                 <RepoAvatar repo={repo.repo} />
                 {repo.repo}
-                <span className="text-primary">{repo.merged}</span>
+                <span className={githubMergedClass}>{repo.merged}</span>
               </a>
             ))}
             <span className="inline-flex items-baseline gap-2 px-2.5 py-1.5 font-mono text-[11px] text-muted-foreground/70">

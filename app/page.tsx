@@ -47,7 +47,7 @@ export default async function Home() {
         id="open-source"
         kicker="Upstream"
         title="Merged work in other people's systems"
-        note="193 merged pull requests across 64 repositories in Go, Rust, C++, TypeScript and Python: databases, storage, search, networking, observability and developer tooling. The rows below are the changes I would want a reviewer to check first."
+        note="193 merged pull requests across 64 repositories in Go, Rust, C++, TypeScript and Python: databases, storage, search, networking, observability and developer tooling. Top repositories are expanded inline with a line per merge."
       >
         <OssTable contributionCalendar={contributionCalendar} />
       </Section>
@@ -56,7 +56,7 @@ export default async function Home() {
         id="experience"
         kicker="History"
         title="Where the production habits came from"
-        note="CTO at AugmentPath, then Nugget (Zomato) and earlier roles. Detail for voice AI lives in the case study above."
+        note="Now: CTO at AugmentPath Strategy. Before that: Nugget (Zomato) and earlier roles. Voice AI detail lives in the case study above."
       >
         <ExperienceTimeline />
       </Section>

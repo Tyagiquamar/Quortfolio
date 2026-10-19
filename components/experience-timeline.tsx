@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { augmentPath } from "@/data/site"
 import { education, experience } from "@/data/experience"
 import { Reveal } from "@/components/reveal"
 
@@ -15,7 +16,9 @@ function CompanyMark({
 }) {
   return (
     <span
-      className="relative mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border bg-background font-mono text-xs font-medium"
+      className={`relative mb-3 inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-border font-mono text-xs font-medium ${
+        logo === augmentPath.logo ? "bg-neutral-950" : "bg-background"
+      }`}
       aria-hidden
     >
       {logo ? (

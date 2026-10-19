@@ -1,6 +1,6 @@
 # Quortfolio
 
-Mohd Quamar Tyagi · CTO at AugmentPath. This site opens with the production voice-AI
+Mohd Quamar Tyagi · CTO at AugmentPath Strategy. This site opens with the production voice-AI
 case study, then widens to the whole record: four roles, twelve systems and product projects, and
 193 merged pull requests across 64 open-source repositories.
 

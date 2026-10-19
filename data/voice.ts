@@ -11,19 +11,12 @@ export interface Block {
 
 export const voiceCase = {
   slug: "augmentpath",
-  title: "AugmentPath",
+  title: "AugmentPath Strategy",
   subtitle: "AI phone receptionist for automotive repair shops",
   role: "CTO",
   period: "May 2026 - Present",
   kicker: "Production voice AI",
   lede: "An inbound call to an auto repair shop is answered by a realtime voice agent, diagnosed before it is qualified, and written into the shop's own management system as structured work. I built the backend and the voice path that make that happen, and the operational trail that proves what happened on every call.",
-
-  metrics: [
-    { value: "84", label: "commits", detail: "backend, portal, E2E" },
-    { value: "6", label: "merged PRs", detail: "voice gateway + call flow" },
-    { value: "4", label: "pilots", detail: "auto shop, contractor, restaurant, demo" },
-    { value: "8", label: "call stages", detail: "inbound call to audit trail" },
-  ],
 
   stack: [
     "TypeScript",
