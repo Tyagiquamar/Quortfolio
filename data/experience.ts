@@ -57,9 +57,9 @@ export const experience: Role[] = [
     dates: "Contract",
     mark: "CA",
     bullets: [
-      "Trained and evaluated model outputs as a contract RLHF trainer, ranking and rewriting responses against written guidelines.",
+      "Contract RLHF on coding tasks only: ranked, corrected and rewrote model outputs on programming problems using written rubrics and benchmark-style eval harnesses (terminal-bench class setups).",
     ],
-    tech: ["RLHF", "Prompt evaluation", "Technical writing"],
+    tech: ["RLHF", "Code evaluation", "Benchmark-style QA", "Technical writing"],
   },
   {
     company: "ITJOBS",

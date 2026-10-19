@@ -21,9 +21,9 @@ export const site = {
 
 export const nav = [
   { label: "Case study", href: "#voice" },
-  { label: "Work", href: "#systems" },
-  { label: "Open source", href: "#open-source" },
   { label: "Experience", href: "#experience" },
+  { label: "Open source", href: "#open-source" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ] as const
 
@@ -58,7 +58,7 @@ export const stats: Stat[] = [
   {
     value: "RLHF",
     label: "LLM eval & training",
-    detail: "Contract RLHF (Caudal AI) · voice guardrails & eval",
+    detail: "Caudal AI (contract) · coding-only RLHF, terminal-bench-style eval",
   },
 ]
 

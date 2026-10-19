@@ -70,17 +70,19 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
   )
 }
 
-export function ProjectBucket({ bucket }: { bucket: Bucket }) {
+export function ProjectBucket({ bucket, embedded = false }: { bucket: Bucket; embedded?: boolean }) {
   const list = projectsByBucket(bucket)
   const meta = buckets[bucket]
 
   return (
-    <div className="mt-2">
-      <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-        <h3 className="disp text-lg font-semibold">{meta.title}</h3>
-        <p className="max-w-2xl text-xs leading-5 text-muted-foreground">{meta.blurb}</p>
-      </div>
-      <div className="mt-6 border-t border-border">
+    <div className={embedded ? "mt-4" : "mt-2"}>
+      {!embedded ? (
+        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+          <h3 className="disp text-lg font-semibold">{meta.title}</h3>
+          <p className="max-w-2xl text-xs leading-5 text-muted-foreground">{meta.blurb}</p>
+        </div>
+      ) : null}
+      <div className={embedded ? "" : "mt-6 border-t border-border"}>
         {list.map((project, index) => (
           <ProjectRow key={project.slug} project={project} index={index} />
         ))}
