@@ -83,7 +83,7 @@ export const cpProfiles = [
     detail: "peak 2245 · stan23456",
     href: "https://codeforces.com/profile/stan23456",
     logo: "/logos/codeforces-logo.png",
-    accent: "#a855f7",
+    accent: "#ff8c00",
   },
   {
     platform: "LeetCode",
