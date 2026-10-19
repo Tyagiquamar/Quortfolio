@@ -64,7 +64,7 @@ const jsonLd = {
   sameAs: [
     "https://github.com/Tyagiquamar",
     "https://www.linkedin.com/in/quamartyagi/",
-    "https://codeforces.com/profile/altair_45",
+    "https://codeforces.com/profile/stan23456",
     "https://leetcode.com/u/Altair_4/",
   ],
 }

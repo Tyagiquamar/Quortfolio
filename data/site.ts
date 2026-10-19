@@ -51,9 +51,9 @@ export const stats: Stat[] = [
     detail: "Go/gRPC paths at Nugget (Zomato)",
   },
   {
-    value: "2038",
+    value: "2202",
     label: "Codeforces rating",
-    detail: "Candidate Master · top 1%",
+    detail: "Master · peak 2245",
   },
   {
     value: "RLHF",
@@ -79,9 +79,9 @@ export const contact = {
 export const cpProfiles = [
   {
     platform: "Codeforces",
-    rating: "Candidate Master · 2038",
-    detail: "top 1% globally",
-    href: "https://codeforces.com/profile/altair_45",
+    rating: "Master · 2202",
+    detail: "peak 2245 · stan23456",
+    href: "https://codeforces.com/profile/stan23456",
     logo: "/logos/codeforces-logo.png",
     accent: "#a855f7",
   },

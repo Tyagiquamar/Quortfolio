@@ -40,7 +40,7 @@ export function HeroHighlights() {
           className="font-semibold transition-opacity hover:opacity-80"
           style={{ color: cf.accent }}
         >
-          Codeforces Candidate Master at 2038
+          Codeforces Master at 2202
         </Link>
         <span className="text-muted-foreground/70"> · </span>
         <Link
