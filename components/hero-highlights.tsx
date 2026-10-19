@@ -1,28 +1,32 @@
 import { GitMerge } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { heroLanguages } from "@/data/hero-languages"
 import { cpProfiles } from "@/data/site"
 
 const mergedPurple = "text-[#8957e5] font-semibold"
 const repoAccent = "text-foreground font-semibold"
 
-function Lang({
+function LangChip({
   name,
   color,
-  suffix,
-  suffixColor,
+  icon,
 }: {
   name: string
   color: string
-  suffix?: string
-  suffixColor?: string
+  icon: string
 }) {
   return (
-    <span className="font-medium" style={{ color }}>
-      {name}
-      {suffix ? (
-        <span style={{ color: suffixColor ?? color }}> ({suffix})</span>
-      ) : null}
+    <span className="inline-flex items-center gap-1 align-middle whitespace-nowrap">
+      <Image
+        src={icon}
+        alt=""
+        width={16}
+        height={16}
+        className="h-4 w-4 shrink-0 object-contain"
+        aria-hidden
+      />
+      <span className="font-medium" style={{ color }}>{name}</span>
     </span>
   )
 }
@@ -55,15 +59,20 @@ export function HeroHighlights() {
         across{" "}
         <span className={repoAccent}>64 open-source repositories</span>
         , in{" "}
-        <Lang name="Go" color="#00ADD8" suffix="🐹" />
-        {", "}
-        <Lang name="Rust" color="#CE422B" suffix="🦀" />
-        {", "}
-        <Lang name="C++" color="#00599C" suffix="++" suffixColor="#659AD2" />
-        {", "}
-        <Lang name="TypeScript" color="#3178C6" suffix="TS" suffixColor="#235A97" />
-        {" and "}
-        <Lang name="Python" color="#3776AB" suffix="🐍" suffixColor="#FFD43B" />
+        {heroLanguages.map((lang, index) => {
+          const sep =
+            index === heroLanguages.length - 1
+              ? " and "
+              : index === 0
+                ? ""
+                : ", "
+          return (
+            <span key={lang.name}>
+              {sep}
+              <LangChip name={lang.name} color={lang.color} icon={lang.icon} />
+            </span>
+          )
+        })}
         : databases, storage, search, networking, observability and developer tooling.
       </p>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
