@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+    --font-display: var(--font-grotesk), var(--font-inter), system-ui, sans-serif;
+    --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --background: 50 14% 96%;
+    --foreground: 240 8% 10%;
+    --card: 50 14% 93%;
+    --card-hover: 50 12% 89%;
+    --card-foreground: 240 8% 10%;
+    --popover: 50 14% 97%;
+    --popover-foreground: 240 8% 10%;
+    --primary: 84 62% 30%;
+    --primary-foreground: 50 14% 98%;
+    --secondary: 50 10% 88%;
+    --secondary-foreground: 240 8% 12%;
+    --muted: 50 10% 90%;
+    --muted-foreground: 240 5% 38%;
+    --accent: 84 40% 88%;
+    --accent-foreground: 240 8% 11%;
+    --destructive: 0 68% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 82%;
+    --input: 240 6% 82%;
+    --ring: 84 62% 30%;
+    --radius: 0.125rem;
+  }
+
+  .dark {
+    --background: 240 9% 5%;
+    --foreground: 50 12% 95%;
+    --card: 240 8% 8%;
+    --card-hover: 240 7% 11%;
+    --card-foreground: 50 12% 95%;
+    --popover: 240 8% 9%;
+    --popover-foreground: 50 12% 95%;
+    --primary: 84 78% 58%;
+    --primary-foreground: 240 9% 6%;
+    --secondary: 240 6% 14%;
+    --secondary-foreground: 50 12% 92%;
+    --muted: 240 6% 13%;
+    --muted-foreground: 240 5% 64%;
+    --accent: 240 6% 16%;
+    --accent-foreground: 50 12% 94%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 18%;
+    --input: 240 5% 20%;
+    --ring: 84 78% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-[1240px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12;
+  }
+
+  .band {
+    @apply mx-auto w-full max-w-[1240px] px-5 py-10 sm:px-8 sm:py-14 lg:px-12;
+  }
+
+  .kicker {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground;
+  }
+
+  .disp {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .panel {
+    @apply border border-border bg-card;
+  }
+
+  .panel-quiet {
+    @apply border border-border/70 bg-card/40;
+  }
+
+  .divide-rows {
+    @apply divide-y divide-border border-y border-border;
+  }
+
+  .hover-row {
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .hover-row:hover {
+    background: hsl(var(--card-hover));
+  }
+
+  .link {
+    @apply text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary;
+  }
+
+  .quiet-link {
+    @apply transition-colors hover:text-primary;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .chip {
+    @apply inline-flex items-center border border-border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground;
+  }
+
+  .dot-live {
+    position: relative;
+    display: inline-flex;
+    height: 0.375rem;
+    width: 0.375rem;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+  }
+
+  .dot-live::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    animation: dot-pulse 1.8s ease-out infinite;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 380ms ease,
+      transform 380ms ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .trace {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .flow-node {
+    @apply relative flex items-baseline gap-3 border border-border/80 bg-card/40 px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground;
+  }
+
+  .flow-node strong {
+    @apply font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground;
+  }
+}
+
+@keyframes dot-pulse {
+  from {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .dot-live::after {
+    animation: none;
+  }
+}
